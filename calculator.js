@@ -1,6 +1,21 @@
+const calculatorDisplay = document.querySelector(".input-display");
+const allButtons = document.querySelectorAll("button");
+
 let firstNum;
 let secondNum;
 let operator;
+
+allButtons.forEach((button) => {
+    
+    button.addEventListener("click", () => {
+        if (button.className.match("clear")) {
+            calculatorDisplay.textContent = "";
+        }
+
+        calculatorDisplay.textContent += button.value;
+    });
+});
+
 
 function add(num1, num2) {
     return num1 + num2;
@@ -34,3 +49,5 @@ function operate(operator, firstNum, secondNum) {
             break;
     }
 }
+
+
